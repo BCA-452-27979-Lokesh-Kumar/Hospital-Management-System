@@ -56,7 +56,7 @@ Live Demo : [Hospital Management System - 000webhost by Kishan](https://kishan07
 ## GETTING INTO THE PROJECT:
 Hospital Management System in php and mysql. This system has a ‘Home’ page from where the patient, doctor & administrator can login into their accounts by toggling the tabs accordingly. Fig 1.1 shows the ‘Home’ page of our project.
 
-![alt text](/readmeimg/image.png)
+![alt text](image-1.png)
 
 'About Us' page (Fig 1.2)  allows us to get some more information about the quality and the services of the hospital.
 
