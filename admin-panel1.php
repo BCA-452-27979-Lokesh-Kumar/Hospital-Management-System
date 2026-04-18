@@ -53,7 +53,7 @@ if(isset($_POST['docsub1']))
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Global Hospital </a>
+  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> CarePlus Hospitals </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -78,7 +78,7 @@ if(isset($_POST['docsub1']))
 
   <style >
     .bg-primary {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #00a896, #02c39a);
 }
 
 .col-md-4{
@@ -88,11 +88,11 @@ if(isset($_POST['docsub1']))
 .list-group-item.active {
     z-index: 2;
     color: #fff;
-    background-color: #342ac1;
-    border-color: #007bff;
+    background-color: #02c39a;
+    border-color: #02c39a;
 }
 .text-primary {
-    color: #342ac1!important;
+    color: #02c39a!important;
 }
 
 #cpass {
@@ -241,14 +241,6 @@ if(isset($_POST['docsub1']))
                 
               </div>
             </div>
-      
-                
-      
-
-
-
-
-
 
       <div class="tab-pane fade" id="list-doc" role="tabpanel" aria-labelledby="list-home-list">
               
@@ -295,6 +287,11 @@ if(isset($_POST['docsub1']))
                   ?>
                 </tbody>
               </table>
+              <div class="col-md-2">
+                <form action="export_pdf.php" method="post">
+                  <input type="submit" name="export_pdf" class="btn btn-success" value="Export to PDF">
+                </form>
+            </div>
         <br>
       </div>
     
@@ -350,6 +347,13 @@ if(isset($_POST['docsub1']))
                   ?>
                 </tbody>
               </table>
+              <div class="col-md-2">
+                <form action="export_all.php" method="post">
+                  <input type="hidden" name="table_name" value="patreg">
+                  <input type="hidden" name="file_name" value="Patient_List">
+                  <input type="submit" name="export_pdf" class="btn btn-success" value="Export PDF">
+                </form>
+              </div>
         <br>
       </div>
 
@@ -413,6 +417,13 @@ if(isset($_POST['docsub1']))
                   ?>
                 </tbody>
               </table>
+              <div class="col-md-2">
+                <form action="export_all.php" method="post">
+                  <input type="hidden" name="table_name" value="prestb">
+                  <input type="hidden" name="file_name" value="Prescription_Report">
+                  <input type="submit" name="export_pdf" class="btn btn-success" value="Export PDF">
+                </form>
+              </div>
         <br>
       </div>
       </div>
@@ -489,6 +500,13 @@ if(isset($_POST['docsub1']))
                     <?php } ?>
                 </tbody>
               </table>
+              <div class="col-md-2">
+                <form action="export_all.php" method="post">
+                  <input type="hidden" name="table_name" value="appointmenttb">
+                  <input type="hidden" name="file_name" value="Appointment_Details">
+                  <input type="submit" name="export_pdf" class="btn btn-success" value="Export PDF">
+                </form>
+              </div>
         <br>
       </div>
 
@@ -582,6 +600,13 @@ if(isset($_POST['docsub1']))
                     <?php } ?>
                 </tbody>
               </table>
+              <div class="col-md-2">
+                <form action="export_all.php" method="post">
+                  <input type="hidden" name="table_name" value="contact">
+                  <input type="hidden" name="file_name" value="Inquiry_Messages">
+                  <input type="submit" name="export_pdf" class="btn btn-success" value="Export PDF">
+                </form>
+              </div>
         <br>
       </div>
 

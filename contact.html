@@ -1,99 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Contact Us</title>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="contact.css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script >
-    function alphaOnly(event) {
-  var key = event.keyCode;
-  return ((key >= 65 && key <= 90) || key == 8 || key == 32);
-};
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | CarePlus Hospitals</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
 
-<style >
-    body{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-}
-  .contact-form {
-    background: #f8f9fa;
-    border-top-left-radius: 10% 50%;
-    border-bottom-left-radius: 10% 50%;
-    border-top-right-radius: 10% 50%;
-    border-bottom-right-radius: 10% 50%;
-}
-</style>
+    <style>
+        body { 
+            font-family: 'IBM Plex Sans', sans-serif; 
+            /* Background with your specific colors */
+            background: linear-gradient(135deg, #00a896 0%, #02c39a 100%);
+            min-height: 100vh;
+        }
+        .text-primary-custom { color: #00a896; }
+        .text-secondary-custom { color: #02c39a; }
+        .bg-primary-custom { background-color: #00a896; }
+        .bg-secondary-custom { background-color: #02c39a; }
+        .border-primary-custom { border-color: #00a896; }
+
+        /* Modern Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form Focus Styles with your colors */
+        .form-input:focus {
+            border-color: #02c39a;
+            box-shadow: 0 0 0 3px rgba(2, 195, 154, 0.2);
+            outline: none;
+        }
+
+        /* Custom Selection Color */
+        ::selection {
+            background: #02c39a;
+            color: white;
+        }
+    </style>
+
+    <script>
+        function alphaOnly(event) {
+            var key = event.keyCode;
+            return ((key >= 65 && key <= 90) || key == 8 || key == 32);
+        };
+    </script>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
-    <div class="container">
 
-      <a class="navbar-brand js-scroll-trigger" href="index.php" style="margin-top: 10px;margin-left:-65px;font-family: 'IBM Plex Sans', sans-serif;"><h4><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp GLOBAL HOSPITALS</h4></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="index.php" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>HOME</h6></a>
-          </li>
+<body class="flex flex-col">
 
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="services.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>ABOUT US</h6></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="contact.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>CONTACT</h6></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-
-
-
-
-
-
-    <div class="container contact-form" style="font-family: 'IBM Plex Sans', sans-serif;">
-            <div class="contact-image">
-                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+    <nav class="p-6">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a class="text-white text-2xl font-bold flex items-center" href="index.php">
+                <i class="fa fa-user-plus mr-3"></i> CarePlus Hospitals
+            </a>
+            <div class="space-x-8 hidden md:flex font-medium text-white">
+                <a href="index.php" class="hover:text-teal-100 transition">Home</a>
+                <a href="services.html" class="hover:text-teal-100 transition">About Us</a>
+                <a href="contact.html" class="border-b-2 border-white pb-1">Contact</a>
             </div>
-            <form method="post" action="contact.php">
-                <h3>Drop Us a Message</h3>
-               <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" onkeydown="return alphaOnly(event);" required/>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="glass-card max-w-6xl mx-auto overflow-hidden flex flex-col lg:flex-row">
+            
+            <div class="lg:w-1/3 bg-primary-custom p-10 text-white flex flex-col justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 italic">Reach Out to Us</h2>
+                    <p class="text-teal-50 mb-10 leading-relaxed">
+                        Have queries regarding appointments or our healthcare packages? 
+                        Fill out the form, and our specialists will get back to you shortly.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <span>+62 0888 904 711</span>
                         </div>
-                        <div class="form-group">
-                            <input type="email" name="txtEmail" class="form-control" placeholder="Your Email *" value="" required />
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <span>careplus@hospitals.com</span>
                         </div>
-                        <div class="form-group">
-                            <input type="tel" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" minlength="10" maxlength="10" required />
-                        </div>
-                        <div class="form-group" >
-                            <input type="submit" name="btnSubmit" class="btnContact"   value="Send Message" />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group" >
-                            <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;" required></textarea>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <span>Kuningan City, Jakarta</span>
                         </div>
                     </div>
                 </div>
-            </form>
-</div>
+
+                <div class="mt-12">
+                    <h4 class="font-bold mb-4 uppercase text-sm tracking-widest text-teal-200">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white text-white hover:text-primary-custom transition"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white text-white hover:text-primary-custom transition"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white text-white hover:text-primary-custom transition"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-2/3 p-10 md:p-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Drop Us a Message</h3>
+                <p class="text-gray-500 mb-10">Required fields are marked with *</p>
+
+                <form method="post" action="contact.php" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-700">Full Name *</label>
+                            <input type="text" name="txtName" class="w-full px-4 py-3 border border-gray-200 rounded-xl form-input" placeholder="Enter your name" onkeydown="return alphaOnly(event);" required />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold text-gray-700">Email Address *</label>
+                            <input type="email" name="txtEmail" class="w-full px-4 py-3 border border-gray-200 rounded-xl form-input" placeholder="email@example.com" required />
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-700">Phone Number *</label>
+                        <input type="tel" name="txtPhone" class="w-full px-4 py-3 border border-gray-200 rounded-xl form-input" placeholder="10 Digit Contact" minlength="10" maxlength="10" required />
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-sm font-semibold text-gray-700">Your Message *</label>
+                        <textarea name="txtMsg" class="w-full h-40 p-4 border border-gray-200 rounded-xl form-input resize-none" placeholder="How can we help you today?" required></textarea>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" name="btnSubmit" class="w-full md:w-auto px-12 py-4 bg-secondary-custom text-white font-bold rounded-full shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                            Send Message <i class="fa fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-white text-sm opacity-80">
+        &copy; 2026 CarePlus Hospitals. All rights reserved.
+    </footer>
 
 </body>
 </html>
-
-
-

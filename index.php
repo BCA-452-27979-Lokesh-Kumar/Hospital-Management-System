@@ -1,207 +1,154 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>HMS</title>
-	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-<link rel="stylesheet" type="text/css" href="style1.css">
-<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePlus Hospitals - HMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body { font-family: 'IBM Plex Sans', sans-serif; }
+        .bg-primary-custom { background-color: #00a896; }
+        .bg-secondary-custom { background-color: #02c39a; }
+        .text-primary-custom { color: #00a896; }
+        
+        /* Smooth Tab Transition */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .nav-tab.active {
+            border-bottom: 3px solid #00a896;
+            color: #00a896;
+            font-weight: bold;
+        }
+    </style>
 
-<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script>
+        var check = function() {
+            if (document.getElementById('password').value == document.getElementById('cpassword').value) {
+                document.getElementById('message').style.color = '#5dd05d';
+                document.getElementById('message').innerHTML = ' <i class="fa fa-check"></i> Matched';
+            } else {
+                document.getElementById('message').style.color = '#f55252';
+                document.getElementById('message').innerHTML = ' <i class="fa fa-times"></i> Not Matching';
+            }
+        }
 
-<style >
-     .form-control {
-    border-radius: 0.75rem;
-}
-</style>
+        function alphaOnly(event) {
+            var key = event.keyCode;
+            return ((key >= 65 && key <= 90) || key == 8 || key == 32);
+        };
 
-<script>
-    var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('cpassword').value) {
-    document.getElementById('message').style.color = '#5dd05d';
-    document.getElementById('message').innerHTML = 'Matched';
-  } else {
-    document.getElementById('message').style.color = '#f55252';
-    document.getElementById('message').innerHTML = 'Not Matching';
-  }
-}
+        function checklen() {
+            var pass1 = document.getElementById("password");  
+            if(pass1.value.length < 6){  
+                alert("Password must be at least 6 characters long. Try again!");  
+                return false;  
+            }  
+        }
 
-function alphaOnly(event) {
-  var key = event.keyCode;
-  return ((key >= 65 && key <= 90) || key == 8 || key == 32);
-};
-
-function checklen()
-{
-    var pass1 = document.getElementById("password");  
-    if(pass1.value.length<6){  
-        alert("Password must be at least 6 characters long. Try again!");  
-        return false;  
-  }  
-}
-
-</script>
-
+        // Tab Switching Logic
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("nav-tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 </head>
 
-<!------ Include the above in your HEAD tag ---------->
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
-    <div class="container">
+<body class="bg-gray-50">
 
-      <a class="navbar-brand js-scroll-trigger" href="#" style="margin-top: 10px;margin-left:-65px;font-family: 'IBM Plex Sans', sans-serif;"><h4><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp GLOBAL HOSPITALS</h4></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="index.php" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>HOME</h6></a>
-          </li>
-  
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="services.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>ABOUT US</h6></a>
-          </li>
+    <nav class="bg-primary-custom p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-white text-2xl font-bold flex items-center" href="#">
+                <i class="fa fa-user-plus mr-2"></i> CarePlus Hospitals
+            </a>
+            <div class="space-x-8 hidden md:flex">
+                <a href="index.php" class="text-white hover:text-gray-200 transition">HOME</a>
+                <a href="services.html" class="text-white hover:text-gray-200 transition">ABOUT US</a>
+                <a href="contact.html" class="text-white hover:text-gray-200 transition">CONTACT</a>
+            </div>
+        </div>
+    </nav>
 
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="contact.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>CONTACT</h6></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <div class="container mx-auto mt-12 px-4 pb-12">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+            
+            <div class="md:w-1/3 bg-secondary-custom p-10 flex flex-col justify-center items-center text-white">
+                <img src="https://png.pngtree.com/png-clipart/20250519/original/pngtree-cartoon-rocket-ship-taking-off-against-a-transparent-background-ready-for-png-image_21030409.png" class="w-48 mb-6 animate-bounce" alt="Welcome"/>
+                <h3 class="text-3xl font-bold mb-2">Welcome</h3>
+                <p class="text-center opacity-90">Manage your health journey with CarePlus Hospital's most advanced HMS portal.</p>
+            </div>
 
-	
-
-<div class="container register" style="font-family: 'IBM Plex Sans', sans-serif;">
-                <div class="row">
-                    <div class="col-md-3 register-left" style="margin-top: 10%;right: 5%">
-                        <img src="https://png.pngtree.com/png-clipart/20250519/original/pngtree-cartoon-rocket-ship-taking-off-against-a-transparent-background-ready-for-png-image_21030409.png" alt=""/>
-                        <h3>Welcome</h3>
-                       
-                    </div>
-                    <div class="col-md-9 register-right" style="margin-top: 40px;left: 80px;">
-                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist" style="width: 40%;">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Patient</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Doctor</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="false">Receptionist</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Register as Patient</h3>
-                                <form method="post" action="func2.php">
-                                <div class="row register-form">
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control"  placeholder="First Name *" name="fname"  onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Your Email *" name="email"  />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" id="password" name="password" onkeyup='check();' required/>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <div class="maxl">
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="Male" checked>
-                                                    <span> Male </span> 
-                                                </label>
-                                                <label class="radio inline"> 
-                                                    <input type="radio" name="gender" value="Female">
-                                                    <span>Female </span> 
-                                                </label>
-                                            </div>
-                                            <a href="index1.php">Already have an account?</a>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Last Name *" name="lname" onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <input type="tel" minlength="10" maxlength="10" name="contact" class="form-control" placeholder="Your Phone *"  />
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  id="cpassword" placeholder="Confirm Password *" name="cpassword"  onkeyup='check();' required/><span id='message'></span>
-                                        </div>
-                                        <input type="submit" class="btnRegister" name="patsub1" onclick="return checklen();" value="Register"/>
-                                    </div>
-
-                                </div>
-                            </form>
-                            </div>
-
-                            
-                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Login as Doctor</h3>
-                                <form method="post" action="func1.php">
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="User Name *" name="username3" onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" name="password3" required/>
-                                        </div>
-                                        
-                                        <input type="submit" class="btnRegister" name="docsub1" value="Login"/>
-                                    </div>
-                                </div>
-                            </form>
-                            </div>
-
-
-                            <div class="tab-pane fade show" id="admin" role="tabpanel" aria-labelledby="profile-tab">
-                                <h3  class="register-heading">Login as Admin</h3>
-                                <form method="post" action="func3.php">
-                                <div class="row register-form">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="User Name *" name="username1" onkeydown="return alphaOnly(event);" required/>
-                                        </div>
-                                        
-
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Password *" name="password2" required/>
-                                        </div>
-                                        
-                                        <input type="submit" class="btnRegister" name="adsub" value="Login"/>
-                                    </div>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-
-                    </div>
+            <div class="md:w-2/3 p-8 md:p-12">
+                <div class="flex border-b mb-8 space-x-4">
+                    <button class="nav-tab active py-2 px-4 transition" onclick="openTab(event, 'home')">Patient</button>
+                    <button class="nav-tab py-2 px-4 transition" onclick="openTab(event, 'profile')">Doctor</button>
+                    <button class="nav-tab py-2 px-4 transition" onclick="openTab(event, 'admin')">Receptionist</button>
                 </div>
 
+                <div id="home" class="tab-content active">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-6">Register as Patient</h3>
+                    <form method="post" action="func2.php">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" name="fname" placeholder="First Name *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-custom" onkeydown="return alphaOnly(event);" required />
+                            <input type="text" name="lname" placeholder="Last Name *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-custom" onkeydown="return alphaOnly(event);" required />
+                            <input type="email" name="email" placeholder="Email ID *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-custom" required />
+                            <input type="tel" name="contact" minlength="10" maxlength="10" placeholder="Phone Number *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-custom" required />
+                            <input type="password" id="password" name="password" placeholder="Password *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-custom" onkeyup='check();' required />
+                            <div>
+                                <input type="password" id="cpassword" name="cpassword" placeholder="Confirm Password *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary-custom" onkeyup='check();' required />
+                                <span id='message' class="text-sm mt-1 block"></span>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center space-x-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="gender" value="Male" checked class="text-primary-custom focus:ring-primary-custom">
+                                <span class="ml-2">Male</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="gender" value="Female" class="text-primary-custom focus:ring-primary-custom">
+                                <span class="ml-2">Female</span>
+                            </label>
+                        </div>
+                        <div class="mt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <a href="index1.php" class="text-primary-custom hover:underline">Already have an account?</a>
+                            <input type="submit" name="patsub1" value="Register" onclick="return checklen();" class="bg-primary-custom text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition cursor-pointer w-full md:w-auto shadow-lg" />
+                        </div>
+                    </form>
+                </div>
+
+                <div id="profile" class="tab-content">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-6">Doctor Login</h3>
+                    <form method="post" action="func1.php" class="space-y-4">
+                        <input type="text" name="username3" placeholder="Username *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-custom" required />
+                        <input type="password" name="password3" placeholder="Password *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-custom" required />
+                        <input type="submit" name="docsub1" value="Login" class="bg-primary-custom text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition cursor-pointer w-full shadow-lg" />
+                    </form>
+                </div>
+
+                <div id="admin" class="tab-content">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-6">Receptionist Login</h3>
+                    <form method="post" action="func3.php" class="space-y-4">
+                        <input type="text" name="username1" placeholder="Admin Username *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-custom" required />
+                        <input type="password" name="password2" placeholder="Password *" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-custom" required />
+                        <input type="submit" name="adsub" value="Login" class="bg-primary-custom text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition cursor-pointer w-full shadow-lg" />
+                    </form>
+                </div>
             </div>
-    </body>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    </html>
-
-  
+        </div>
+    </div>
+</body>
+</html>

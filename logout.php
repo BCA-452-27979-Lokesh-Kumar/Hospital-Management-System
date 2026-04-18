@@ -14,13 +14,13 @@ session_destroy();
 
     <style >
       .btn-outline-light:hover {
-        color: #0076d4;
+        color: #d40043;
         background-color: #f8f9fa;
         border-color: #f8f9fa;
 }
     </style>
   </head>
-  <body style="background: -webkit-linear-gradient(left, #3931af, #00c6ff);color:white;padding-top:100px;text-align:center;">
+  <body style="background: -webkit-linear-gradient(left, #00a896, #02c39a);color:white;padding-top:100px;text-align:center;">
     <h3>You have logged out.</h3><br><br>
     <a href="index1.php" class="btn btn-outline-light">Back to Login Page</a>
     <!-- Optional JavaScript -->

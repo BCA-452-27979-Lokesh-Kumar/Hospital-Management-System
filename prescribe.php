@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<?php
+<?php 
 include('func1.php');
-$pid='';
-$ID='';
-$appdate='';
-$apptime='';
-$fname = '';
-$lname= '';
+$pid=''; $ID=''; $appdate=''; $apptime=''; $fname = ''; $lname= '';
 $doctor = $_SESSION['dname'];
-if(isset($_GET['pid']) && isset($_GET['ID']) && ($_GET['appdate']) && isset($_GET['apptime']) && isset($_GET['fname']) && isset($_GET['lname'])) {
-$pid = $_GET['pid'];
+
+if(isset($_GET['pid']) && isset($_GET['ID']) && isset($_GET['appdate']) && isset($_GET['apptime']) && isset($_GET['fname']) && isset($_GET['lname'])) {
+  $pid = $_GET['pid'];
   $ID = $_GET['ID'];
   $fname = $_GET['fname'];
   $lname = $_GET['lname'];
@@ -17,138 +13,124 @@ $pid = $_GET['pid'];
   $apptime = $_GET['apptime'];
 }
 
-
-
-if(isset($_POST['prescribe']) && isset($_POST['pid']) && isset($_POST['ID']) && isset($_POST['appdate']) && isset($_POST['apptime']) && isset($_POST['lname']) && isset($_POST['fname'])){
-  $appdate = $_POST['appdate'];
-  $apptime = $_POST['apptime'];
+if(isset($_POST['prescribe'])){
   $disease = $_POST['disease'];
   $allergy = $_POST['allergy'];
+  $prescription = $_POST['prescription'];
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
   $pid = $_POST['pid'];
   $ID = $_POST['ID'];
-  $prescription = $_POST['prescription'];
+  $appdate = $_POST['appdate'];
+  $apptime = $_POST['apptime'];
   
   $query=mysqli_query($con,"insert into prestb(doctor,pid,ID,fname,lname,appdate,apptime,disease,allergy,prescription) values ('$doctor','$pid','$ID','$fname','$lname','$appdate','$apptime','$disease','$allergy','$prescription')");
-    if($query)
-    {
-      echo "<script>alert('Prescribed successfully!');</script>";
-    }
-    else{
-      echo "<script>alert('Unable to process your request. Try again!');</script>";
-    }
-  // else{
-  //   echo "<script>alert('GET is not working!');</script>";
-  // }initial
-  // enga error?
+  if($query) {
+    echo "<script>alert('Prescribed successfully!'); window.location.href='doctor-panel.php';</script>";
+  }
+  else {
+    echo "<script>alert('Unable to process your request. Try again!');</script>";
+  }
 }
-
 ?>
 
 <html lang="en">
-  <head>
-
-
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8">
+    <title>Prescribe Patient | CarePlus</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-    <meta name="viewport" content="width=device-width, -scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-        <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-  <a class="navbar-brand" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Global Hospital </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-  <style >
-    .bg-primary {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-}
-.list-group-item.active {
-    z-index: 2;
-    color: #fff;
-    background-color: #342ac1;
-    border-color: #007bff;
-}
-.text-primary {
-    color: #342ac1!important;
-}
-
-.btn-primary{
-  background-color: #3c50c1;
-  border-color: #3c50c1;
-}
-  </style>
-
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-     <ul class="navbar-nav mr-auto">
-       <li class="nav-item">
-        <a class="nav-link" href="logout1.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
-        
-      </li>
-       <li class="nav-item">
-       <a class="nav-link" href="doctor-panel.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Back</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
+    <style>
+        body { font-family: 'IBM Plex Sans', sans-serif; background-color: #f8fafc; }
+        .bg-gradient-custom { background: linear-gradient(to right, #00a896, #02c39a); }
+        .text-custom { color: #00a896; }
+        .form-control:focus { border-color: #02c39a; box-shadow: 0 0 0 0.2rem rgba(2, 195, 154, 0.25); }
+    </style>
 </head>
-  <style type="text/css">
-    button:hover{cursor:pointer;}
-    #inputbtn:hover{cursor:pointer;}
-  </style>
 
-<body style="padding-top:50px;">
-   <div class="container-fluid" style="margin-top:50px;">
-    <h3 style = "margin-left: 40%;  padding-bottom: 20px; font-family: 'IBM Plex Sans', sans-serif;"> Welcome &nbsp<?php echo $doctor ?>
-   </h3>
+<body class="pt-24">
 
-   <div class="tab-pane" id="list-pres" role="tabpanel" aria-labelledby="list-pres-list">
-        <form class="form-group" name="prescribeform" method="post" action="prescribe.php">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-custom fixed-top shadow-lg">
+        <div class="container">
+            <a class="navbar-brand font-bold" href="doctor-panel.php"><i class="fa fa-user-md mr-2"></i> CarePlus Hospitals</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link font-semibold text-white" href="doctor-panel.php"><i class="fa fa-arrow-left mr-1"></i> Back to Panel</a>
+                    </li>
+                    <li class="nav-item ml-4">
+                        <a class="nav-link font-semibold text-white" href="logout1.php"><i class="fa fa-sign-out mr-1"></i> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-teal-50">
+            
+            <div class="bg-teal-50 p-6 border-b border-teal-100 flex flex-wrap justify-between items-center">
+                <div>
+                    <h5 class="text-sm font-bold text-teal-600 uppercase tracking-widest">Prescribing Patient</h5>
+                    <h2 class="text-2xl font-bold text-gray-800"><?php echo $fname . " " . $lname; ?></h2>
+                </div>
+                <div class="text-right text-sm text-gray-500">
+                    <p><strong>Appt ID:</strong> #<?php echo $ID; ?></p>
+                    <p><strong>Date:</strong> <?php echo $appdate; ?></p>
+                </div>
+            </div>
+
+            <div class="p-8 md:p-12">
+                <form method="post" action="prescribe.php" class="space-y-8">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                        <label class="font-bold text-gray-700 pt-2">Disease / Diagnosis:</label>
+                        <div class="md:col-span-3">
+                            <textarea name="disease" rows="3" class="form-control rounded-xl p-4 bg-gray-50 border-gray-200" placeholder="Enter patient symptoms or diagnosed disease..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                        <label class="font-bold text-gray-700 pt-2">Known Allergies:</label>
+                        <div class="md:col-span-3">
+                            <textarea name="allergy" rows="3" class="form-control rounded-xl p-4 bg-gray-50 border-gray-200" placeholder="Enter any drug or food allergies (write 'None' if none)..." required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-start">
+                        <label class="font-bold text-gray-700 pt-2">Prescription / Medication:</label>
+                        <div class="md:col-span-3">
+                            <textarea name="prescription" rows="6" class="form-control rounded-xl p-4 bg-gray-50 border-gray-200 font-mono text-sm" placeholder="Rx: &#10;1. Medicine Name - Dosage - Timing" required></textarea>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="fname" value="<?php echo $fname ?>" />
+                    <input type="hidden" name="lname" value="<?php echo $lname ?>" />
+                    <input type="hidden" name="appdate" value="<?php echo $appdate ?>" />
+                    <input type="hidden" name="apptime" value="<?php echo $apptime ?>" />
+                    <input type="hidden" name="pid" value="<?php echo $pid ?>" />
+                    <input type="hidden" name="ID" value="<?php echo $ID ?>" />
+
+                    <div class="flex justify-center pt-6">
+                        <button type="submit" name="prescribe" class="bg-gradient-custom text-white font-bold py-4 px-16 rounded-full shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition duration-300 flex items-center">
+                            Finish & Save Prescription <i class="fa fa-check-circle ml-3"></i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
         
-          <div class="row">
-                  <div class="col-md-4"><label>Disease:</label></div>
-                  <div class="col-md-8">
-                  <!-- <input type="text" class="form-control" name="disease" required> -->
-                  <textarea id="disease" cols="86" rows ="5" name="disease" required></textarea>
-                  </div><br><br><br>
-                  
-                  <div class="col-md-4"><label>Allergies:</label></div>
-                  <div class="col-md-8">
-                  <!-- <input type="text"  class="form-control" name="allergy" required> -->
-                  <textarea id="allergy" cols="86" rows ="5" name="allergy" required></textarea>
-                  </div><br><br><br>
-                  <div class="col-md-4"><label>Prescription:</label></div>
-                  <div class="col-md-8">
-                  <!-- <input type="text" class="form-control"  name="prescription"  required> -->
-                  <textarea id="prescription" cols="86" rows ="10" name="prescription" required></textarea>
-                  </div><br><br><br>
-                  <input type="hidden" name="fname" value="<?php echo $fname ?>" />
-                  <input type="hidden" name="lname" value="<?php echo $lname ?>" />
-                  <input type="hidden" name="appdate" value="<?php echo $appdate ?>" />
-                  <input type="hidden" name="apptime" value="<?php echo $apptime ?>" />
-                  <input type="hidden" name="pid" value="<?php echo $pid ?>" />
-                  <input type="hidden" name="ID" value="<?php echo $ID ?>" />
-                  <br><br><br><br>
-          <input type="submit" name="prescribe" value="Prescribe" class="btn btn-primary" style="margin-left: 40pc;">
-          
-        </form>
-        <br>
-        
-      </div>
-      </div>
-      
+        <p class="text-center text-gray-400 text-xs mt-8 italic">
+            <i class="fa fa-lock mr-1"></i> This information is securely stored in the patient's medical history.
+        </p>
+    </div>
 
-  
+</body>
+</html>

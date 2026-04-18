@@ -3,116 +3,125 @@ include("header.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Patient Login | CarePlus</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
 
-    <!-- Bootstrap CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" type="text/css" href="style2.css">
+    <style>
+        body { 
+            font-family: 'IBM Plex Sans', sans-serif; 
+            background: linear-gradient(135deg, #00a896 0%, #02c39a 100%);
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+        }
+        .custom-input:focus {
+            border-color: #00a896;
+            ring-color: #00a896;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.2);
+        }
+        @keyframes mover {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        .ambulance-anim {
+            animation: mover 1.5s infinite alternate;
+        }
+    </style>
+</head>
 
+<body class="flex flex-col">
 
-    
-  </head>
-  <style type="text/css">
-    #inputbtn:hover{cursor:pointer;}
-    .card{
-    background: #f8f9fa;
-    border-top-left-radius: 5% 5%;
-    border-bottom-left-radius: 5% 5%;
-    border-top-right-radius: 5% 5%;
-    border-bottom-right-radius: 5% 5%;
-}
-
-  </style>
-  <body style="background: -webkit-linear-gradient(left, #3931af, #00c6ff); background-size: cover;">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
-    <div class="container">
-
-      <a class="navbar-brand js-scroll-trigger" href="index.php" style="margin-top: 10px;margin-left:-65px;font-family: 'IBM Plex Sans', sans-serif;"><h4><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp GLOBAL HOSPITALS</h4></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="index.php" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>HOME</h6></a>
-          </li>
-  
-          <li class="nav-item" style="margin-right: 40px;">
-            <a class="nav-link js-scroll-trigger" href="services.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>ABOUT US</h6></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="contact.html" style="color: white;font-family: 'IBM Plex Sans', sans-serif;"><h6>CONTACT</h6></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-
-    <div class="container-fluid" style="margin-top:60px;margin-bottom:60px;color:#34495E;">
-      <div class="row">
-
-        
-
-         <div class="col-md-7" style="padding-left: 180px; ">
-                 <div style="-webkit-animation: mover 2s infinite alternate;
-    animation: mover 1s infinite alternate;">
-          <img src="images/ambulance1.png" alt="" style="width: 20%;padding-left: 40px;margin-top: 150px;margin-left: 45px;margin-bottom:15px">
-      </div>
-
-      <div style="color: white;">
-            <h4 style="font-family: 'IBM Plex Sans', sans-serif;"> We are here for you!</h4>
-          </div>
-
-         </div>
-
-         <div class="col-md-4" style="margin-top: 5%;right: 8%">
-          <div class="card" style="font-family: 'IBM Plex Sans', sans-serif;">
-            <div class="card-body">
-              <center>
-                <i class="fa fa-hospital-o fa-3x" aria-hidden="true" style="color:#0062cc"></i>
-                <br>
-              <h3 style="margin-top: 10%">Patient Login</h3><br>
-              <form class="form-group" method="POST" action="func.php">
-                <div class="row" style="margin-top: 10%">
-                  <div class="col-md-4"><label>Email-ID: </label></div>
-                  <div class="col-md-8"><input type="text" name="email" class="form-control" placeholder="enter email ID" required/></div><br><br>
-                  <div class="col-md-4" style="margin-top: 8%"><label>Password: </label></div>
-                  <div class="col-md-8" style="margin-top: 8%"><input type="password" class="form-control" name="password2" placeholder="enter password" required/></div><br><br><br>
-                </div>
-                <div class="row">
-                 <div class="col-md-4"  style="padding-left: 160px;margin-top: 10%">
-                    <center><input type="submit" id="inputbtn" name="patsub" value="Login" class="btn btn-primary"></center></div>           
-                 <!--  <div class="col-md-8" style="margin-top: 10%">
-                    <a href="index.php" class="btn btn-primary">Back</a></div> -->
-                </div>
-              </form>
-            </center>
+    <nav class="p-4 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a class="text-white text-2xl font-bold flex items-center" href="index.php">
+                <i class="fa fa-user-plus mr-2"></i> CarePlus Hospitals
+            </a>
+            <div class="space-x-8 hidden md:flex font-semibold text-white">
+                <a href="index.php" class="hover:text-teal-100 transition border-b-2 border-transparent hover:border-white pb-1">HOME</a>
+                <a href="services.html" class="hover:text-teal-100 transition border-b-2 border-transparent hover:border-white pb-1">ABOUT US</a>
+                <a href="contact.html" class="hover:text-teal-100 transition border-b-2 border-transparent hover:border-white pb-1">CONTACT</a>
             </div>
-          </div>
         </div>
+    </nav>
 
+    <div class="flex-grow flex items-center justify-center px-4 py-12">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-around gap-12">
+            
+            <div class="text-center md:text-left text-white md:w-1/2">
+                <div class="ambulance-anim inline-block mb-6">
+                    <img src="images/ambulance1.png" alt="Ambulance" class="w-32 md:w-48 drop-shadow-2xl">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">We are here <br>for you!</h1>
+                <p class="text-teal-50 text-lg opacity-90 max-w-md">Access your health records, book appointments, and connect with specialists instantly.</p>
+            </div>
 
-      </div>
+            <div class="w-full max-w-md md:w-1/3">
+                <div class="glass-card shadow-2xl p-8 md:p-12 relative overflow-hidden">
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-teal-100 rounded-full opacity-50"></div>
+                    
+                    <div class="text-center mb-8 relative z-10">
+                        <div class="bg-teal-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-hospital-o text-4xl text-[#00a896]"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-800">Patient Login</h3>
+                        <p class="text-gray-500 text-sm mt-2">Please enter your credentials</p>
+                    </div>
+
+                    <form method="POST" action="func.php" class="space-y-6 relative z-10">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                    <input type="text" name="email" class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl custom-input transition" placeholder="example@mail.com" required/>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-1">Password</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                                        <i class="fa fa-lock"></i>
+                                    </span>
+                                    <input type="password" name="password2" class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl custom-input transition" placeholder="••••••••" required/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit" name="patsub" id="inputbtn" class="w-full bg-gradient-to-r from-[#00a896] to-[#02c39a] text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+                                Login to Account
+                            </button>
+                        </div>
+                        
+                        <div class="text-center mt-6">
+                            <p class="text-gray-500 text-sm">Don't have an account? 
+                                <a href="index.php" class="text-[#00a896] font-bold hover:underline">Register here</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
 
+    <footer class="py-6 text-center text-white text-sm opacity-75">
+        &copy; 2026 CarePlus Hospitals. Your health, our priority.
+    </footer>
 
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
