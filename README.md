@@ -1,11 +1,6 @@
 # Hospital Management System
 Hospital Management System using MySQL, Php and Bootstrap
 
-
-Video Demo : [Hospital Management System - Youtube](https://www.youtube.com/watch?v=W2XGSM5i9P8)
-
-Live Demo : [Hospital Management System - 000webhost by Kishan](https://kishan0725.000webhostapp.com)
-
 ## Need to work on:
 
 1. Ability to accept the appointment by the doctor to acknowledge the patient that their appointment has been approved.
@@ -154,8 +149,6 @@ This module allows admin to perform five major operations:
 **2. View the list of all doctors registered:**
 
   &nbsp; &nbsp; &nbsp; Details of the doctors can also be viewed by the admin. This details include the Name of the doctor, Password, Email and Consultancy fees, shown in Fig 1.16. Searching for a doctor can be done by using the doctor’s Email ID in the search box.
-
-![alt text](/readmeimg//readmeimg/image-18.png)
 
 **3. View the Appointment lists:**
 
